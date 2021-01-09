@@ -4,4 +4,22 @@
 
 body {
     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+.forecast {
+    font-size: 14px;
+}
+
+span {
+    font-size: 16px;
+}
+
+li:hover {
+    background-color: lightgray;
+    text-decoration: underline;
 }
