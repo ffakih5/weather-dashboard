@@ -21,3 +21,4 @@ function find(cs){
     }
     return 1;
 }
+console.log("cs");
