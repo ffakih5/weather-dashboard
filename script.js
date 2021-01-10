@@ -12,3 +12,12 @@ var city = "";
 var searchButton = $();
 var apiKey = "0285f9ca23eb9733a78696b08ba93c18";
 
+//find cities
+function find(cs){
+    for (var i=0; i < cities.length; i++){
+        if(cs.toLowerCase()===cities[i]){
+            return -1;
+        }
+    }
+    return 1;
+}
