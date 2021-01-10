@@ -43,6 +43,14 @@ function currentWeather(city){
     }).then(function(response){
 
         console.log(response);
+        var weatherIcon = response.weather[0].icon;
+        var iconUrl = "://openweathermap.org/img/wn/"+weatherIcon +"@2x.png";
+        
+        var date = new Date(response.dt*1000).toLocaleDateString();
+
+        $(currentCity).html(response.name +"("+date+")" + "<img src="+iconUrl+">");
+        
+
 
 
 
