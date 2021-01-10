@@ -86,5 +86,11 @@ function currentWeather(city){
 }
 function UVIndex(lon,lat){
 
-    
+    var uviQURL="https://api.openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln
+    $.ajax({
+        url:uviQURL,
+        method:"GET"
+        }).then(function(response){
+        $("currentUvIndex").html(response.value);
+        });
 }
