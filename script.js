@@ -59,20 +59,27 @@ function currentWeather(city){
         var windSpeedMph = (windSpeed*2.37).toFixed(1);
         $(currentWindSpeed).html(windSpeedMph+"mph");
 
-        
+        currentUvIndex(response.coord.lon,response.coord.lat);
+        forecast(response.id);
+        if(response.code==200){
+            cities=JSON.parse(localStorage.getItem("cityname"));
+            
+            if(cities==null){
+                cities = [];
+                cities.push(city.toLowerCase());
+                localStorage.setItem("cityname",JSON.stringify(cities));
+                addToList(city);
 
+            }
+            else {
+                if(find(city)>0){
+                    cities.push(city.toLowerCase());
+                    localStorage.setItem("cityname",JSON.stringify(cities));
+                }
+            }
 
+        }
 
-
-
-
-   
-   
-   
-   
-   
-   
-   
-    })
+    });
 
 }
