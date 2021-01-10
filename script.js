@@ -49,7 +49,13 @@ function currentWeather(city){
         var date = new Date(response.dt*1000).toLocaleDateString();
 
         $(currentCity).html(response.name +"("+date+")" + "<img src="+iconUrl+">");
+
+        var forTemp = (response.main.temp - 273.15) * 1.80 + 32;
+        $(currentTemperature).html((forTemp).toFixed(2) +"&#8457");
+
+        $(currentHumidity).html(response.main.humidity+"%");
         
+
 
 
 
