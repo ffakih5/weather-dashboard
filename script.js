@@ -75,6 +75,7 @@ function currentWeather(city){
                 if(find(city)>0){
                     cities.push(city.toLowerCase());
                     localStorage.setItem("cityname",JSON.stringify(cities));
+                    addaToList(city);
                 }
             }
 
@@ -82,4 +83,8 @@ function currentWeather(city){
 
     });
 
+}
+function UVIndex(lon,lat){
+
+    
 }
