@@ -21,4 +21,14 @@ function find(cs){
     }
     return 1;
 }
-console.log("cs");
+
+//weather displayed once city put in to form
+function weatherShown(event){
+    event.preventDefault();
+    if(searchCity.val().trim()!==""){
+        city=searchCity.val().trim();
+        currentWeather(city);
+
+    }
+
+}
