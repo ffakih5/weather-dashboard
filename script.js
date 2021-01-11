@@ -116,8 +116,13 @@ function forecast(cityid){
             $("#forTemp"+i).html(tempFar+"&#8457");
             $("#forHumidity"+i).html(humidity+"%");
         }
+
         });
   
-
-
+}
+function addToList(cs){
+    var listEl = $("<li>"+cs.toLowerCase()+"</li>");
+    $(listEl).attr("class","list-group-item");
+    $(listEl).attr("data-value", cs.toLowerCase());
+    $(".list-group").append(listEl);
 }
