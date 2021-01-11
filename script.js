@@ -111,10 +111,10 @@ function forecast(cityid){
             var tempFar = (((tempKel-273.5)*8)+32).toFixed(2);
             var humidity = response.list[((i+1)*8)-1].main.humidity; 
 
-            $("#forDate"+i);
-            $("#forImg"+i);
-            $("#forTemp"+i);
-            $("#forHumidity"+i);
+            $("#forDate"+i).html(date);
+            $("#forImg"+i).html("<img src="+iconUrl+">");
+            $("#forTemp"+i).html(tempFar+"&#8457");
+            $("#forHumidity"+i).html(humidity+"%");
         }
         });
   
