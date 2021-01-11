@@ -22,7 +22,7 @@ function find(cs){
     return 1;
 }
 
-//weather displayed once city put in to form
+//weather displayed once city put in to form. cities[]
 function weatherShown(event){
     event.preventDefault();
     if(searchCity.val().trim()!==""){
@@ -138,14 +138,19 @@ function invokePreviousCity(event){
 
 function showLastCity(){
     $("ul").empty();
-    var searchCity = JSON.parse(localStorage.getItem("cityname"));
-    if(searchCity!==null){
-        searchCity = JSON.parse(localStorage.getItem("cityname"));
-        for(i=0; i<searchCity.length; i++){
-            addToList(searchCity[i]);
+    var cities = JSON.parse(localStorage.getItem("cityname"));
+    if(cities!==null){
+        cities = JSON.parse(localStorage.getItem("cityname"));
+        for(i=0; i<cities.length; i++){
+            addToList(cities[i]);
         }
-        city=searchCity[i-1];
+        city=cities[i-1];
         currentWeather(city);
     }
-    
+
+}
+function clearHistory(event){
+    event.preventDefault();
+    cities[]
+
 }
