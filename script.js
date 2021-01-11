@@ -43,7 +43,7 @@ function currentWeather(city){
 
         console.log(response);
         var weatherIcon = response.weather[0].icon;
-        var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon +"@2x.png";
+        var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon;
         
         var date = new Date(response.dt*1000).toLocaleDateString();
 
@@ -102,7 +102,7 @@ function forecast(cityid){
         method:"GET"
         }).then(function(response){
         
-        for(i=0; i<5;i++){
+        for(i=0; i<6;i++){
             var date = new Date(response.list[((i+1)*8)-1]*1000).toLocaleDateString();
             var iconId = response.list[((i+1)*8)-1].weather.icon;
             var iconUrl = "https://openweathermap.org/img/wn/"+iconId+".png";
