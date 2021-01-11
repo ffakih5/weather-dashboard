@@ -151,6 +151,9 @@ function showLastCity(){
 }
 function clearHistory(event){
     event.preventDefault();
-    cities[]
+    cities = [];
+    localStorage.removeItem("cityname");
+    document.location.reload();
 
 }
+
