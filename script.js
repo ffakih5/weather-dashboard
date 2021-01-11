@@ -133,5 +133,19 @@ function invokePreviousCity(event){
         city = listItem.textContent.trim();
         currentWeather(city);
     }
+
+}
+
+function showLastCity(){
+    $("ul").empty();
+    var searchCity = JSON.parse(localStorage.getItem("cityname"));
+    if(searchCity!==null){
+        searchCity = JSON.parse(localStorage.getItem("cityname"));
+        for(i=0; i<searchCity.length; i++){
+            addToList(searchCity[i]);
+        }
+        city=searchCity[i-1];
+        currentWeather(city);
+    }
     
 }
