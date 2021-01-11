@@ -6,4 +6,4 @@ _With a simple City search they can see the forecast._
 
 ![WeatherDashboard](Assets/WeatherDashboard.png)
 
-## Search your ideal City here! [🌈](https://github.com/ffakih5/weather-dashboard)
+## Search your ideal City here! [🌈](https://ffakih5.github.io/weather-dashboard/)
