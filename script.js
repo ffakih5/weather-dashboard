@@ -157,3 +157,7 @@ function clearHistory(event){
 
 }
 
+$("#search-button").on("click", weatherShown);
+$(document).on("click", invokePreviousCity);
+$(window).on("load", showLastCity);
+$("#clear-history").on("click",clearHistory);
