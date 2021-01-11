@@ -105,8 +105,13 @@ function forecast(cityid){
         
         for(i=0; i<5;i++){
             var date = new Date(response.list[((i+1)*8)-1]*1000).toLocaleDateString();
+            var iconId = response.list[((i+1)*8)-1].weather.icon;
+            var iconUrl = "https://openweathermap.org/img/wn/"+iconId+".png";
+            var tempKel = response.list[((i+1)*8)-1].main.temp; 
+            var tempFar = (((tempKel-273.5)*8)+32).toFixed(2);
+            var humidity = response.list[((i+1)*8)-1].main.humidity; 
         }
-        })
+        });
   
 
 
