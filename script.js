@@ -98,6 +98,15 @@ function UVIndex(lon,lat){
 function forecast(cityid){
     var dayOver = false;
     var forecastQURL = "https://api.openweathermap.org/data/2.5/forecast?id="+cityid+"&appid="+apiKey;
+    $.ajax({
+        url:forecastQURL,
+        method:"GET"
+        }).then(function(response){
+        
+        for(i=0; i<5;i++){
+            var date = new Date(response.list[((i+1)*8)-1]*1000).toLocaleDateString();
+        }
+        })
   
 
 
