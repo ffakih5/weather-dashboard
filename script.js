@@ -9,7 +9,6 @@ var currentWindSpeed = $("#wind-speed");
 var currentUvIndex = $("#uv-index");
 var cities = [];
 var city = "";
-var searchButton = $();
 var apiKey = "0285f9ca23eb9733a78696b08ba93c18";
 
 //find cities
@@ -44,7 +43,7 @@ function currentWeather(city){
 
         console.log(response);
         var weatherIcon = response.weather[0].icon;
-        var iconUrl = "://openweathermap.org/img/wn/"+weatherIcon +"@2x.png";
+        var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon +"@2x.png";
         
         var date = new Date(response.dt*1000).toLocaleDateString();
 
@@ -59,7 +58,7 @@ function currentWeather(city){
         var windSpeedMph = (windSpeed*2.37).toFixed(1);
         $(currentWindSpeed).html(windSpeedMph+"mph");
 
-        currentUvIndex(response.coord.lon,response.coord.lat);
+        UVIndex(response.coord.lon,response.coord.lat);
         forecast(response.id);
         if(response.code==200){
             cities=JSON.parse(localStorage.getItem("cityname"));
@@ -86,7 +85,7 @@ function currentWeather(city){
 }
 function UVIndex(lon,lat){
 
-    var uviQURL="https://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey+"&lat="+lt+"&lon="+ln
+    var uviQURL="https://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey+"&lat="+lat+"&lon="+lon
     $.ajax({
         url:uviQURL,
         method:"GET"
