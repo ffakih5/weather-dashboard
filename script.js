@@ -126,3 +126,12 @@ function addToList(cs){
     $(listEl).attr("data-value", cs.toLowerCase());
     $(".list-group").append(listEl);
 }
+
+function invokePreviousCity(event){
+    var listItem = event.target;
+    if(event.target.matches("li")){
+        city = listItem.textContent.trim();
+        currentWeather(city);
+    }
+    
+}
