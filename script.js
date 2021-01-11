@@ -1,4 +1,3 @@
-//Variables
 var searchButton = $("#search-button");
 var clearButton = $("#clear-search");
 var searchCity = $("#search-city");
@@ -11,7 +10,6 @@ var cities = [];
 var city = "";
 var apiKey = "0285f9ca23eb9733a78696b08ba93c18";
 
-//find cities
 function find(cs){
     for (var i=0; i < cities.length; i++){
         if(cs.toLowerCase()===cities[i]){
@@ -21,7 +19,6 @@ function find(cs){
     return 1;
 }
 
-//weather displayed once city put in to form. cities[]
 function weatherShown(event){
     event.preventDefault();
     if(searchCity.val().trim()!==""){
@@ -32,10 +29,9 @@ function weatherShown(event){
 
 }
 
-//AJAX call with URL to get data from weather server.
+
 function currentWeather(city){
-    var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city + "&appid=" + apiKey;
+    var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
     $.ajax({
         url:queryURL,
         method:"GET",
