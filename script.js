@@ -42,7 +42,7 @@ function currentWeather(city){
     }).then(function(response){
 
         var weatherIcon = response.weather[0].icon;
-        var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon;
+        var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon+".png";
         
         var date = new Date(response.dt*1000).toLocaleDateString();
         
