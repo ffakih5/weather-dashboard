@@ -48,8 +48,8 @@ function currentWeather(city){
         
         $(currentCity).html(response.name +"("+date+")" + "<img src="+iconUrl+">");
 
-        var forTemp = (response.main.temp - 273.15) * 1.80 + 32;
-        $(currentTemperature).html((forTemp).toFixed(2) +"&#8457");
+        var forTemp = (response.main.temp - 273.15);
+        $(currentTemperature).html((forTemp).toFixed(2) +"&#8451");
 
         $(currentHumidity).html(response.main.humidity+"%");
 
@@ -106,12 +106,12 @@ function forecast(cityid){
             var iconId = response.list[((i+1)*8)-1].weather[0].icon;
             var iconUrl = "https://openweathermap.org/img/wn/"+iconId+".png";
             var tempKel = response.list[((i+1)*8)-1].main.temp; 
-            var tempFar = (((tempKel-273.5)*8)+32).toFixed(2);
+            var tempCel = (((tempKel- 273.15))).toFixed(2);
             var humidity = response.list[((i+1)*8)-1].main.humidity; 
 
             $("#forDate"+i).html(date);
             $("#forImg"+i).html("<img src="+iconUrl+">");
-            $("#forTemp"+i).html(tempFar+"&#8457");
+            $("#forTemp"+i).html(tempCel+"&#8451");
             $("#forHumidity"+i).html(humidity+"%");
         }
 
