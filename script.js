@@ -41,12 +41,11 @@ function currentWeather(city){
         method:"GET",
     }).then(function(response){
 
-        console.log(response);
         var weatherIcon = response.weather[0].icon;
         var iconUrl = "https://openweathermap.org/img/wn/"+weatherIcon;
         
         var date = new Date(response.dt*1000).toLocaleDateString();
-
+        
         $(currentCity).html(response.name +"("+date+")" + "<img src="+iconUrl+">");
 
         var forTemp = (response.main.temp - 273.15) * 1.80 + 32;
@@ -102,9 +101,9 @@ function forecast(cityid){
         method:"GET"
         }).then(function(response){
         
-        for(i=0; i<6;i++){
-            var date = new Date(response.list[((i+1)*8)-1]*1000).toLocaleDateString();
-            var iconId = response.list[((i+1)*8)-1].weather.icon;
+        for(i=0; i<5;i++){
+            var date = new Date((response.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
+            var iconId = response.list[((i+1)*8)-1].weather[0].icon;
             var iconUrl = "https://openweathermap.org/img/wn/"+iconId+".png";
             var tempKel = response.list[((i+1)*8)-1].main.temp; 
             var tempFar = (((tempKel-273.5)*8)+32).toFixed(2);
@@ -118,11 +117,11 @@ function forecast(cityid){
 
         });
   
-}
+    }
 function addToList(cs){
     var listEl = $("<li>"+cs.toLowerCase()+"</li>");
-    $(listEl).attr("class","list-group-item");
-    $(listEl).attr("data-value", cs.toLowerCase());
+    $(listEl).attr("class","list-group");
+    $(listEl).attr("data-value",cs.toLowerCase());
     $(".list-group").append(listEl);
 }
 
@@ -148,7 +147,7 @@ function showLastCity(){
     }
 
 }
-function clearHistory(event){
+function clearSearch(event){
     event.preventDefault();
     cities = [];
     localStorage.removeItem("cityname");
@@ -156,7 +155,7 @@ function clearHistory(event){
 
 }
 
-$("#search-button").on("click", weatherShown);
-$(document).on("click", invokePreviousCity);
-$(window).on("load", showLastCity);
-$("#clear-history").on("click",clearHistory);
+$("#search-button").on("click",weatherShown);
+$(document).on("click",invokePreviousCity);
+$(window).on("load",showLastCity);
+$("#clear-search").on("click",clearSearch);
