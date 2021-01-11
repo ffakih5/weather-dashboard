@@ -80,9 +80,9 @@ function currentWeather(city){
 }
 function UVIndex(lon,lat){
 
-    var uviQURL="https://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey+"&lat="+lat+"&lon="+lon
+    var uviqURL="https://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey+"&lat="+lat+"&lon="+lon;
     $.ajax({
-        url:uviQURL,
+        url:uviqURL,
         method:"GET"
         }).then(function(response){
         $("currentUvIndex").html(response.value);
@@ -90,7 +90,7 @@ function UVIndex(lon,lat){
 }
 
 function forecast(cityid){
-    var dayOver = false;
+    
     var forecastQURL = "https://api.openweathermap.org/data/2.5/forecast?id="+cityid+"&appid="+apiKey;
     $.ajax({
         url:forecastQURL,
